@@ -22,7 +22,7 @@ class perceptron(object):
   def pred(self,inputs):
     sum = 0.0
     for i in range(len(self.weights)): #caculate the weighted sum
-      sum += inputs * self.weights[i]
+      sum += inputs[i] * self.weights[i]
 
     return self.activation(sum)
 
@@ -31,4 +31,4 @@ class perceptron(object):
     error = ans - guess
 
     for i in range(len(self.weights)):
-      self.weights[i] += self.lr * error * inputs
+      self.weights[i] += self.lr * error * inputs[i]

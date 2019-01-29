@@ -15,6 +15,7 @@ data = shuffle(data)
 species = list(data.iloc[0:, 4]) #initialize a new array of the iris species, these will get encoded
 
 petal_length = list(data.iloc[0:, 2]) 
+petal_width = list(data.iloc[0:, 3]) 
 
 encoded_species = []
 
@@ -24,7 +25,9 @@ for i in species:
     if i == "Iris-versicolor":
         encoded_species.append(-1.0)
 
-for i in range(len(species)):
-    model.train(petal_length[i], encoded_species[i])
+for i in range(len(encoded_species)):
+    model.train([petal_length[i], petal_width[i]], encoded_species[i])
 
-print(model.pred(1.4))
+
+print(model.pred([1.4,0.2]))#should be 1
+print(model.pred([4.5,1.6]))#should be -1
