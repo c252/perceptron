@@ -4,10 +4,8 @@ import random
 
 class perceptron(object):
   
-  def __init__(self, inputs, lr): #takes 1d vector for inputs and learning rate
+  def __init__(self, lr): #takes 1d vector for inputs and learning rate
     self.lr = lr
-    self.inputs = inputs
-
     self.weights = [0]*2 #intializes the weights for the perceptron, there will always be two 
 
     for i in range(len(self.weights)): #give the weights of the inputs a random value from -1 to 1
@@ -22,7 +20,7 @@ class perceptron(object):
   def pred(self,inputs):
     sum = 0
     for i in range(len(self.weights)): #caculate the weighted sum
-      sum += self.inputs[i] * self.weights[i]
+      sum += inputs[i] * self.weights[i]
 
     return self.activation(sum)
 
