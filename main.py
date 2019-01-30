@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import random
 from sklearn.utils import shuffle
 
-model = perceptron.perceptron(0.5) #initialize a new perceptron with a learning rate of 0.1
+model = perceptron.perceptron(0.01) #initialize a new perceptron with a learning rate of 0.1
 
 data = pd.read_csv("iris.data") #read iris csv
 
@@ -27,7 +27,6 @@ for i in species:
 
 for i in range(len(encoded_species)):
     model.train([petal_length[i], petal_width[i]], encoded_species[i])
-
 
 print(model.pred([1.4,0.2]))#should be 1
 print(model.pred([4.5,1.6]))#should be -1
