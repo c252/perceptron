@@ -29,7 +29,6 @@ class perceptron(object):
   def train(self, inputs, ans):
     guess = self.pred(inputs)
     error = ans - guess
-    print(self.weights)
 
     for i in range(len(self.weights)):
       self.weights[i] += self.lr * error * inputs[i]
