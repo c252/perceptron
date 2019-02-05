@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import random
 from sklearn.utils import shuffle
 
-model = perceptron.perceptron(0.5) #initialize a new perceptron with a learning rate of 0.1
+model = perceptron.perceptron(0.8) #initialize a new perceptron with a learning rate of 0.1
 
 data = pd.read_csv("iris.data") #read iris csv
 
@@ -34,7 +34,7 @@ for i in species:
     if i == "Iris-versicolor":
         encoded_species.append(-1.0)
 
-for _ in range(100):
+for _ in range(50):
     for i in range(len(encoded_species)):
         model.train([petal_length[i], petal_width[i]], encoded_species[i])
 
