@@ -34,7 +34,7 @@ for i in species:
     if i == "Iris-versicolor":
         encoded_species.append(-1.0)
 
-for _ in range(50):
+for _ in range(100):
     for i in range(len(encoded_species)):
         model.train([petal_length[i], petal_width[i]], encoded_species[i])
 

@@ -9,24 +9,15 @@ import matplotlib.pyplot as plt
 import random
 from sklearn.utils import shuffle
 
-model = perceptron.perceptron(0.5)
+model = perceptron.perceptron(0.7)
 
-data = []
+data = pd.read_csv("cars.data")
 
-for i in range(100):
-    data.append([random.randint(0, 1), random.randint(0, 1)])
+door_num = list(data.iloc[0:, 2])
 
-results = []
-for i in data:
-    results.append(i[0] | i[1])
+safety = list(data.iloc[0:, 5])
 
-for i in range(len(data)):
-    model.train(data[i],results[i])
+#data = shuffle(data)
 
-plt.plot(data, results, marker=".", linestyle="None")
+plt.plot(door_num, safety, linestyle="None", marker=".")
 plt.show()
-
-print(model.pred([0,0]))#should be 0
-print(model.pred([1,0]))#should be 1
-print(model.pred([0,1]))#should be 1
-print(model.pred([1,1]))#should be 1
