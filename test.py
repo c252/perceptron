@@ -1,7 +1,7 @@
 #Cyrus Burt |JAN 2019| MIT LICENSE
 
 #Very simple test to see if the perceptron works
-#Tests if the perceptron can solve x OR y
+#Tests if the perceptron can classify X OR Y
 
 import perceptron
 import pandas as pd
